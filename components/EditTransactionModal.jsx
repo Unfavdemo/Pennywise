@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { X, Sparkles } from 'lucide-react';
 import { z } from 'zod';
 
@@ -29,18 +29,38 @@ const transactionSchema = z.object({
   }, 'Date cannot be in the future'),
 });
 
-export default function AddTransactionModal({ onClose, onAdd }) {
-  const [type, setType] = useState('expense');
-  const [amount, setAmount] = useState('');
-  const [category, setCategory] = useState('');
-  const [description, setDescription] = useState('');
-  const [merchant, setMerchant] = useState('');
-  const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
+export default function EditTransactionModal({ transaction, onClose, onUpdate }) {
+  const [type, setType] = useState(transaction?.type || 'expense');
+  const [amount, setAmount] = useState(transaction?.amount?.toString() || '');
+  const [category, setCategory] = useState(transaction?.category || '');
+  const [description, setDescription] = useState(transaction?.description || '');
+  const [merchant, setMerchant] = useState(transaction?.merchant || '');
+  const [date, setDate] = useState(
+    transaction?.date 
+      ? new Date(transaction.date).toISOString().split('T')[0]
+      : new Date().toISOString().split('T')[0]
+  );
   const [aiSuggested, setAiSuggested] = useState(false);
   const [aiLoading, setAiLoading] = useState(false);
   const [aiMethod, setAiMethod] = useState('');
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (transaction) {
+      setType(transaction.type || 'expense');
+      setAmount(transaction.amount?.toString() || '');
+      setCategory(transaction.category || '');
+      setDescription(transaction.description || '');
+      setMerchant(transaction.merchant || '');
+      setDate(
+        transaction.date 
+          ? new Date(transaction.date).toISOString().split('T')[0]
+          : new Date().toISOString().split('T')[0]
+      );
+    }
+  }, [transaction]);
 
   const handleAICategorize = async () => {
     if (!description && !merchant) {
@@ -135,7 +155,7 @@ export default function AddTransactionModal({ onClose, onAdd }) {
     validateField(fieldName, value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setTouched({ amount: true, category: true, date: true });
     
@@ -151,7 +171,8 @@ export default function AddTransactionModal({ onClose, onAdd }) {
     try {
       transactionSchema.parse(formData);
       setErrors({});
-      onAdd(formData);
+      setLoading(true);
+      await onUpdate(transaction.id, formData);
       onClose();
     } catch (error) {
       if (error instanceof z.ZodError) {
@@ -161,15 +182,22 @@ export default function AddTransactionModal({ onClose, onAdd }) {
           newErrors[field] = err.message;
         });
         setErrors(newErrors);
+      } else {
+        console.error('Error updating transaction:', error);
+        alert('Failed to update transaction. Please try again.');
       }
+    } finally {
+      setLoading(false);
     }
   };
+
+  if (!transaction) return null;
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
       <div className="bg-white dark:bg-gray-800 rounded-xl max-w-md w-full p-6 max-h-[90vh] overflow-y-auto">
         <div className="flex items-center justify-between mb-6">
-          <h2 className="text-gray-900 dark:text-gray-100">Add Transaction</h2>
+          <h2 className="text-gray-900 dark:text-gray-100">Edit Transaction</h2>
           <button
             onClick={onClose}
             className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
@@ -348,15 +376,17 @@ export default function AddTransactionModal({ onClose, onAdd }) {
             <button
               type="button"
               onClick={onClose}
-              className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
+              disabled={loading}
+              className="flex-1 px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors disabled:opacity-50"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="flex-1 px-4 py-2 bg-emerald-500 dark:bg-emerald-600 text-white rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
+              disabled={loading}
+              className="flex-1 px-4 py-2 bg-emerald-500 dark:bg-emerald-600 text-white rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              Add Transaction
+              {loading ? 'Saving...' : 'Save Changes'}
             </button>
           </div>
         </form>

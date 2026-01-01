@@ -86,12 +86,12 @@ export default function AIInsights({ transactions }) {
 
   if (insights.length === 0) {
     return (
-      <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl border border-purple-200 p-6">
+      <div className="bg-gradient-to-br from-purple-50 dark:from-purple-900/20 to-blue-50 dark:to-blue-900/20 rounded-xl border border-purple-200 dark:border-purple-800 p-6">
         <div className="flex items-center gap-3 mb-3">
-          <Sparkles className="w-5 h-5 text-purple-600" />
-          <h3 className="text-gray-900">AI Insights</h3>
+          <Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+          <h3 className="text-gray-900 dark:text-gray-100">AI Insights</h3>
         </div>
-        <p className="text-gray-600 text-sm">
+        <p className="text-gray-600 dark:text-gray-300 text-sm">
           Add some transactions to get personalized insights about your spending patterns!
         </p>
       </div>
@@ -99,19 +99,19 @@ export default function AIInsights({ transactions }) {
   }
 
   return (
-    <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl border border-purple-200 p-6">
+    <div className="bg-gradient-to-br from-purple-50 dark:from-purple-900/20 to-blue-50 dark:to-blue-900/20 rounded-xl border border-purple-200 dark:border-purple-800 p-6">
       <div className="flex items-center gap-3 mb-4">
-        <Sparkles className="w-5 h-5 text-purple-600" />
-        <h3 className="text-gray-900">AI Insights</h3>
+        <Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+        <h3 className="text-gray-900 dark:text-gray-100">AI Insights</h3>
       </div>
 
       <div className="space-y-3">
         {insights.map((insight, index) => {
           const Icon = insight.icon;
           const colors = {
-            positive: 'bg-green-50 border-green-200 text-green-700',
-            warning: 'bg-orange-50 border-orange-200 text-orange-700',
-            info: 'bg-blue-50 border-blue-200 text-blue-700',
+            positive: 'bg-green-50 dark:bg-green-900/20 border-green-200 dark:border-green-800 text-green-700 dark:text-green-300',
+            warning: 'bg-orange-50 dark:bg-orange-900/20 border-orange-200 dark:border-orange-800 text-orange-700 dark:text-orange-300',
+            info: 'bg-blue-50 dark:bg-blue-900/20 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300',
           };
 
           return (

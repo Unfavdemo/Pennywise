@@ -42,14 +42,14 @@ export default function InsightsCharts({ transactions }) {
   }
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-6">
-      <h3 className="text-gray-900 mb-6">Spending Insights</h3>
+    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
+      <h3 className="text-gray-900 dark:text-gray-100 mb-6">Spending Insights</h3>
 
       <div className="grid md:grid-cols-2 gap-8">
         {/* Pie Chart - Spending by Category */}
         {categoryData.length > 0 && (
           <div>
-            <h4 className="text-gray-700 text-sm mb-4">Expenses by Category</h4>
+            <h4 className="text-gray-700 dark:text-gray-300 text-sm mb-4">Expenses by Category</h4>
             <ResponsiveContainer width="100%" height={200}>
               <PieChart>
                 <Pie
@@ -75,7 +75,7 @@ export default function InsightsCharts({ transactions }) {
         {/* Bar Chart - Monthly Trend */}
         {monthlyData.length > 0 && (
           <div>
-            <h4 className="text-gray-700 text-sm mb-4">Income vs Expenses</h4>
+            <h4 className="text-gray-700 dark:text-gray-300 text-sm mb-4">Income vs Expenses</h4>
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={monthlyData}>
                 <XAxis dataKey="month" />

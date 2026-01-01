@@ -20,6 +20,7 @@ model User {
   updatedAt     DateTime      @updatedAt
   transactions  Transaction[]
   goals         Goal[]
+  budgets       Budget[]
 }
 
 model Transaction {
@@ -53,5 +54,22 @@ model Goal {
   updatedAt     DateTime @updatedAt
 
   @@index([userId])
+}
+
+model Budget {
+  id            String   @id @default(cuid())
+  category      String
+  amount        Float
+  period        String   @default("monthly") // "monthly", "weekly", "yearly", "custom"
+  startDate     DateTime @default(now())
+  endDate       DateTime?
+  userId        String
+  user          User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([userId])
+  @@index([userId, category])
+  @@unique([userId, category, period])
 }
 

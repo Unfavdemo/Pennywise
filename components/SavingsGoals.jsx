@@ -23,12 +23,12 @@ export default function SavingsGoals({ goals, onAddGoal, onUpdateGoal, onDeleteG
   };
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 p-6">
+    <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-gray-900">Savings Goals</h3>
+        <h3 className="text-gray-900 dark:text-gray-100">Savings Goals</h3>
         <button
           onClick={onAddGoal}
-          className="p-2 hover:bg-emerald-50 rounded-lg transition-colors text-emerald-600"
+          className="p-2 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 rounded-lg transition-colors text-emerald-600 dark:text-emerald-400"
         >
           <Plus className="w-5 h-5" />
         </button>
@@ -38,11 +38,11 @@ export default function SavingsGoals({ goals, onAddGoal, onUpdateGoal, onDeleteG
         {goals.length === 0 ? (
           <div className="text-center py-8">
             <div className="text-4xl mb-4">🎯</div>
-            <p className="text-gray-500 mb-2">No goals yet</p>
-            <p className="text-sm text-gray-400 mb-4">Create your first savings goal</p>
+            <p className="text-gray-500 dark:text-gray-400 mb-2">No goals yet</p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Create your first savings goal</p>
             <button
               onClick={onAddGoal}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 text-purple-600 rounded-lg hover:bg-purple-100 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors"
             >
               <Plus className="w-4 h-4" />
               Add Goal
@@ -54,17 +54,17 @@ export default function SavingsGoals({ goals, onAddGoal, onUpdateGoal, onDeleteG
             const daysLeft = getDaysUntilDeadline(goal.deadline);
             
             return (
-              <div key={goal.id} className="border border-gray-200 rounded-lg p-4 hover:border-purple-300 transition-colors group">
+              <div key={goal.id} className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:border-purple-300 dark:hover:border-purple-600 transition-colors group">
                 <div className="flex items-start justify-between mb-2">
                   <div className="flex-1">
-                    <h4 className="text-gray-900 mb-1">{goal.name}</h4>
-                    <p className="text-sm text-gray-500">
+                    <h4 className="text-gray-900 dark:text-gray-100 mb-1">{goal.name}</h4>
+                    <p className="text-sm text-gray-500 dark:text-gray-400">
                       ${goal.currentAmount.toFixed(2)} of ${goal.targetAmount.toFixed(2)}
                     </p>
                   </div>
                   <button
                     onClick={() => onDeleteGoal(goal.id)}
-                    className="p-1 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded transition-colors opacity-0 group-hover:opacity-100"
+                    className="p-1 text-gray-500 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded transition-colors opacity-0 group-hover:opacity-100"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
@@ -72,16 +72,16 @@ export default function SavingsGoals({ goals, onAddGoal, onUpdateGoal, onDeleteG
 
                 {/* Progress Bar */}
                 <div className="mb-3">
-                  <div className="w-full bg-gray-200 rounded-full h-2">
+                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                     <div
-                      className="bg-purple-500 h-2 rounded-full transition-all"
+                      className="bg-purple-500 dark:bg-purple-400 h-2 rounded-full transition-all"
                       style={{ width: `${Math.min(progress, 100)}%` }}
                     ></div>
                   </div>
                   <div className="flex items-center justify-between mt-1">
-                    <span className="text-xs text-gray-500">{progress.toFixed(0)}% complete</span>
+                    <span className="text-xs text-gray-500 dark:text-gray-400">{progress.toFixed(0)}% complete</span>
                     {daysLeft !== null && (
-                      <span className="text-xs text-gray-500">
+                      <span className="text-xs text-gray-500 dark:text-gray-400">
                         {daysLeft > 0 ? `${daysLeft} days left` : 'Deadline passed'}
                       </span>
                     )}
@@ -92,20 +92,20 @@ export default function SavingsGoals({ goals, onAddGoal, onUpdateGoal, onDeleteG
                 {addingToGoal === goal.id ? (
                   <div className="flex gap-2">
                     <div className="relative flex-1">
-                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 text-sm">$</span>
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 dark:text-gray-400 text-sm">$</span>
                       <input
                         type="number"
                         step="0.01"
                         value={addAmount}
                         onChange={(e) => setAddAmount(e.target.value)}
-                        className="w-full pl-7 pr-3 py-1.5 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                        className="w-full pl-7 pr-3 py-1.5 border border-gray-300 dark:border-gray-600 rounded-lg text-sm focus:ring-2 focus:ring-purple-500 focus:border-purple-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                         placeholder="0.00"
                         autoFocus
                       />
                     </div>
                     <button
                       onClick={() => handleAddToGoal(goal.id)}
-                      className="px-3 py-1.5 bg-purple-500 text-white rounded-lg hover:bg-purple-600 transition-colors text-sm"
+                      className="px-3 py-1.5 bg-purple-500 dark:bg-purple-600 text-white rounded-lg hover:bg-purple-600 dark:hover:bg-purple-700 transition-colors text-sm"
                     >
                       Add
                     </button>
@@ -114,7 +114,7 @@ export default function SavingsGoals({ goals, onAddGoal, onUpdateGoal, onDeleteG
                         setAddingToGoal(null);
                         setAddAmount('');
                       }}
-                      className="px-3 py-1.5 border border-gray-300 text-gray-600 rounded-lg hover:bg-gray-50 transition-colors text-sm"
+                      className="px-3 py-1.5 border border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-300 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors text-sm"
                     >
                       Cancel
                     </button>
@@ -122,7 +122,7 @@ export default function SavingsGoals({ goals, onAddGoal, onUpdateGoal, onDeleteG
                 ) : (
                   <button
                     onClick={() => setAddingToGoal(goal.id)}
-                    className="w-full py-2 bg-purple-50 text-purple-600 rounded-lg hover:bg-purple-100 transition-colors text-sm flex items-center justify-center gap-2"
+                    className="w-full py-2 bg-purple-50 dark:bg-purple-900/20 text-purple-600 dark:text-purple-400 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors text-sm flex items-center justify-center gap-2"
                   >
                     <DollarSign className="w-4 h-4" />
                     Add Money

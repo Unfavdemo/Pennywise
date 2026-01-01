@@ -44,7 +44,7 @@ export default function SignUp() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 to-white">
+    <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 to-white dark:from-gray-900 dark:to-gray-800">
       <Navigation />
       
       <main className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
@@ -53,22 +53,22 @@ export default function SignUp() {
             <div className="inline-flex items-center justify-center w-16 h-16 bg-emerald-500 rounded-2xl mb-4">
               <Wallet className="w-8 h-8 text-white" />
             </div>
-            <h1 className="text-gray-900 mb-2">Create Your Account</h1>
-            <p className="text-gray-600">Start your journey to better money management</p>
+            <h1 className="text-gray-900 dark:text-gray-100 mb-2">Create Your Account</h1>
+            <p className="text-gray-600 dark:text-gray-300">Start your journey to better money management</p>
           </div>
 
-          <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-lg">
+          <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-8 shadow-lg">
             <form onSubmit={handleSubmit} className="space-y-5">
               {/* Name */}
               <div>
-                <label className="block text-sm text-gray-700 mb-2">Full Name</label>
+                <label className="block text-sm text-gray-700 dark:text-gray-300 mb-2">Full Name</label>
                 <div className="relative">
-                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <User className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 dark:text-gray-400" />
                   <input
                     type="text"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                     placeholder="John Doe"
                     required
                   />
@@ -77,14 +77,14 @@ export default function SignUp() {
 
               {/* Email */}
               <div>
-                <label className="block text-sm text-gray-700 mb-2">Email</label>
+                <label className="block text-sm text-gray-700 dark:text-gray-300 mb-2">Email</label>
                 <div className="relative">
-                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 dark:text-gray-400" />
                   <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                     placeholder="you@example.com"
                     required
                   />
@@ -93,31 +93,31 @@ export default function SignUp() {
 
               {/* Password */}
               <div>
-                <label className="block text-sm text-gray-700 mb-2">Password</label>
+                <label className="block text-sm text-gray-700 dark:text-gray-300 mb-2">Password</label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 dark:text-gray-400" />
                   <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                     placeholder="••••••••"
                     required
                   />
                 </div>
-                <p className="text-xs text-gray-500 mt-1">Must be at least 6 characters</p>
+                <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">Must be at least 6 characters</p>
               </div>
 
               {/* Confirm Password */}
               <div>
-                <label className="block text-sm text-gray-700 mb-2">Confirm Password</label>
+                <label className="block text-sm text-gray-700 dark:text-gray-300 mb-2">Confirm Password</label>
                 <div className="relative">
-                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                  <Lock className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 dark:text-gray-400" />
                   <input
                     type="password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500"
+                    className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
                     placeholder="••••••••"
                     required
                   />
@@ -125,23 +125,23 @@ export default function SignUp() {
               </div>
 
               {error && (
-                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+                <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 px-4 py-3 rounded-lg text-sm">
                   {error}
                 </div>
               )}
 
               <button
                 type="submit"
-                className="w-full bg-emerald-500 text-white py-3 rounded-lg hover:bg-emerald-600 transition-colors"
+                className="w-full bg-emerald-500 dark:bg-emerald-600 text-white py-3 rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
               >
                 Create Account
               </button>
             </form>
 
             <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 dark:text-gray-300">
                 Already have an account?{' '}
-                <Link href="/login" className="text-emerald-600 hover:text-emerald-700">
+                <Link href="/login" className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300">
                   Log in
                 </Link>
               </p>
@@ -149,9 +149,9 @@ export default function SignUp() {
           </div>
 
           {/* Info Box */}
-          <div className="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
-            <h3 className="text-blue-900 text-sm mb-2">🎓 Student Account</h3>
-            <p className="text-blue-700 text-xs">
+          <div className="mt-6 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4">
+            <h3 className="text-blue-900 dark:text-blue-100 text-sm mb-2">🎓 Student Account</h3>
+            <p className="text-blue-700 dark:text-blue-300 text-xs">
               Creating a student account gives you full access to budget tracking, savings goals, 
               AI insights, and all Pennywise features. Your data is stored securely on your device.
             </p>
