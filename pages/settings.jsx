@@ -318,7 +318,7 @@ export default function Settings() {
             <h3 className="text-blue-900 dark:text-blue-100 mb-2">💡 Accessibility Tip</h3>
             <p className="text-blue-700 dark:text-blue-300 text-sm">
               These settings are saved automatically and will persist across sessions. 
-              You can also use your browser's built-in accessibility features in combination 
+              You can also use your browser&apos;s built-in accessibility features in combination 
               with these settings for the best experience.
             </p>
           </div>

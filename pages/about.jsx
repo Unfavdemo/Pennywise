@@ -64,7 +64,7 @@ export default function About() {
                 <BookOpen className="w-8 h-8 text-blue-500 dark:text-blue-400 mb-4" />
                 <h3 className="text-gray-900 dark:text-gray-100 mb-3">Lack of Financial Literacy</h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Many students have never been taught basic budgeting, expense tracking, or financial planning. They want to manage money better but don't know where to start or what "good" money management even looks like.
+                  Many students have never been taught basic budgeting, expense tracking, or financial planning. They want to manage money better but don&apos;t know where to start or what &quot;good&quot; money management even looks like.
                 </p>
               </div>
             </div>
@@ -81,10 +81,10 @@ export default function About() {
                     Meet Jordan, a sophomore in college. Jordan works part-time at a campus library earning about $500 per month. Their parents send $200 monthly for personal expenses. With $700 total, Jordan should be comfortable, right?
                   </p>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    But by the third week of every month, Jordan is broke. Where does the money go? $150 on food delivery apps (convenience during late-night study sessions), $80 on coffee shops (study fuel and social hangouts), $120 on streaming services and app subscriptions (most forgotten), $100 on spontaneous shopping (stress relief during midterms), $90 on Uber/Lyft (when running late to class), and countless small purchases that don't register mentally.
+                    But by the third week of every month, Jordan is broke. Where does the money go? $150 on food delivery apps (convenience during late-night study sessions), $80 on coffee shops (study fuel and social hangouts), $120 on streaming services and app subscriptions (most forgotten), $100 on spontaneous shopping (stress relief during midterms), $90 on Uber/Lyft (when running late to class), and countless small purchases that don&apos;t register mentally.
                   </p>
                   <p className="text-gray-700 dark:text-gray-300">
-                    Jordan wants to save $500 for a summer program but has been trying for six months with zero progress. The problem isn't lack of income - it's lack of visibility and intentionality. Jordan needs to see where every dollar goes and make conscious decisions about spending vs. saving.
+                    Jordan wants to save $500 for a summer program but has been trying for six months with zero progress. The problem isn&apos;t lack of income - it&apos;s lack of visibility and intentionality. Jordan needs to see where every dollar goes and make conscious decisions about spending vs. saving.
                   </p>
                 </div>
               </div>
@@ -97,7 +97,7 @@ export default function About() {
             <div className="space-y-4">
               <div className="bg-gray-50 dark:bg-gray-800 p-5 rounded-lg border border-gray-200 dark:border-gray-700">
                 <h3 className="text-gray-900 dark:text-gray-100 mb-2">Limited Financial Education</h3>
-                <p className="text-gray-600 dark:text-gray-300">Most schools don't teach personal finance, leaving students to figure it out on their own through trial and error.</p>
+                <p className="text-gray-600 dark:text-gray-300">Most schools don&apos;t teach personal finance, leaving students to figure it out on their own through trial and error.</p>
               </div>
               
               <div className="bg-gray-50 dark:bg-gray-800 p-5 rounded-lg border border-gray-200 dark:border-gray-700">
@@ -124,7 +124,7 @@ export default function About() {
 
           {/* Consequences */}
           <section className="mb-12">
-            <h2 className="text-gray-900 dark:text-gray-100 mb-6">What Happens If We Don't Solve This</h2>
+            <h2 className="text-gray-900 dark:text-gray-100 mb-6">What Happens If We Don&apos;t Solve This</h2>
             <div className="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-500 dark:border-red-400 p-6 rounded-r-lg">
               <ul className="space-y-3 text-gray-700 dark:text-gray-300">
                 <li className="flex items-start gap-3">
@@ -180,11 +180,11 @@ export default function About() {
                 </div>
                 
                 <div className="p-6 bg-gray-50 dark:bg-gray-900">
-                  <h4 className="text-red-600 dark:text-red-400 mb-4">What Didn't Work ✗</h4>
+                  <h4 className="text-red-600 dark:text-red-400 mb-4">What Didn&apos;t Work ✗</h4>
                   <ul className="space-y-2 text-gray-700 dark:text-gray-300">
                     <li className="flex items-start gap-2">
                       <span className="text-red-500 mt-1">✗</span>
-                      <span>Too complex with features students don't need (investments, loans, credit scores)</span>
+                      <span>Too complex with features students don&apos;t need (investments, loans, credit scores)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-red-500 mt-1">✗</span>

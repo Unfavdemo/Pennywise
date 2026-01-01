@@ -46,7 +46,7 @@ export default function Features() {
                       <div>
                         <h3 className="text-white mb-2">Smart Categorization</h3>
                         <p className="text-white/80 text-sm">
-                          Type "Chipotle lunch" and watch AI instantly suggest "Food & Dining" - no manual sorting needed.
+                          Type &quot;Chipotle lunch&quot; and watch AI instantly suggest &quot;Food & Dining&quot; - no manual sorting needed.
                         </p>
                       </div>
                     </div>
@@ -74,7 +74,7 @@ export default function Features() {
                       <div>
                         <h3 className="text-white mb-2">Intelligent Insights</h3>
                         <p className="text-white/80 text-sm">
-                          Discover patterns you didn't know existed: "You spend 40% more on weekends" or "Coffee purchases up 25% during finals."
+                          Discover patterns you didn&apos;t know existed: &quot;You spend 40% more on weekends&quot; or &quot;Coffee purchases up 25% during finals.&quot;
                         </p>
                       </div>
                     </div>
@@ -215,7 +215,7 @@ export default function Features() {
                       <div className="text-2xl">✅</div>
                       <div>
                         <h4 className="text-emerald-700 dark:text-emerald-300 mb-1">AI Solution: Auto-categorization</h4>
-                        <p className="text-gray-700 dark:text-gray-300 text-sm">AI reads "Starbucks coffee" and instantly suggests "Food & Dining" - you just confirm or adjust</p>
+                        <p className="text-gray-700 dark:text-gray-300 text-sm">AI reads &quot;Starbucks coffee&quot; and instantly suggests &quot;Food & Dining&quot; - you just confirm or adjust</p>
                       </div>
                     </div>
                   </div>
@@ -226,8 +226,8 @@ export default function Features() {
                     <div className="flex items-start gap-4">
                       <div className="text-2xl">🤷</div>
                       <div>
-                        <h4 className="text-gray-900 dark:text-gray-100 mb-1">Problem: No idea what's "normal" spending</h4>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm">Students don't know if spending $200 on food is reasonable or excessive</p>
+                        <h4 className="text-gray-900 dark:text-gray-100 mb-1">Problem: No idea what&apos;s &quot;normal&quot; spending</h4>
+                        <p className="text-gray-600 dark:text-gray-300 text-sm">Students don&apos;t know if spending $200 on food is reasonable or excessive</p>
                       </div>
                     </div>
                   </div>
@@ -236,7 +236,7 @@ export default function Features() {
                       <div className="text-2xl">✅</div>
                       <div>
                         <h4 className="text-emerald-700 dark:text-emerald-300 mb-1">AI Solution: Personalized insights</h4>
-                        <p className="text-gray-700 dark:text-gray-300 text-sm">AI compares to your history: "Food spending up 30% this month" with context and suggestions</p>
+                        <p className="text-gray-700 dark:text-gray-300 text-sm">AI compares to your history: &quot;Food spending up 30% this month&quot; with context and suggestions</p>
                       </div>
                     </div>
                   </div>

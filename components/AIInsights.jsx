@@ -130,4 +130,3 @@ export default function AIInsights({ transactions }) {
     </div>
   );
 }
-

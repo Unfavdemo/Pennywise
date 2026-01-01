@@ -81,7 +81,7 @@ export default function Reflection() {
                   <div>
                     <h4 className="text-gray-900 dark:text-gray-100 mb-2">✓ React & Tailwind CSS Stack</h4>
                     <p>
-                      The technology choices were excellent. React's component-based architecture made the UI modular 
+                      The technology choices were excellent. React&apos;s component-based architecture made the UI modular 
                       and maintainable, while Tailwind CSS enabled rapid styling without context switching. The 
                       learning curve was manageable.
                     </p>
@@ -91,7 +91,7 @@ export default function Reflection() {
                     <h4 className="text-gray-900 dark:text-gray-100 mb-2">✓ AI Categorization Feature</h4>
                     <p>
                       The keyword-based AI categorization worked better than expected. Simple pattern matching with 
-                      words like "Starbucks" or "Uber" proved surprisingly effective for common student expenses. 
+                      words like &quot;Starbucks&quot; or &quot;Uber&quot; proved surprisingly effective for common student expenses. 
                       This feature became a real differentiator.
                     </p>
                   </div>
@@ -124,7 +124,7 @@ export default function Reflection() {
               <div className="bg-red-50 dark:bg-red-900/20 p-6 border-b border-red-200 dark:border-red-800">
                 <div className="flex items-center gap-3">
                   <XCircle className="w-6 h-6 text-red-600 dark:text-red-400" />
-                  <h2 className="text-red-900 dark:text-red-100">What Didn't Go Well</h2>
+                  <h2 className="text-red-900 dark:text-red-100">What Didn&apos;t Go Well</h2>
                 </div>
               </div>
               
@@ -142,8 +142,8 @@ export default function Reflection() {
                   <div>
                     <h4 className="text-gray-900 dark:text-gray-100 mb-2">✗ Testing on Multiple Devices</h4>
                     <p>
-                      Didn't test on actual mobile devices early enough. Some layout issues on smaller screens 
-                      weren't caught until late in development. Mobile-first approach was stated but not fully 
+                      Didn&apos;t test on actual mobile devices early enough. Some layout issues on smaller screens 
+                      weren&apos;t caught until late in development. Mobile-first approach was stated but not fully 
                       executed in practice.
                     </p>
                   </div>
@@ -169,8 +169,8 @@ export default function Reflection() {
                   <div>
                     <h4 className="text-gray-900 dark:text-gray-100 mb-2">✗ Accessibility Considerations</h4>
                     <p>
-                      Accessibility wasn't prioritized from the start. Keyboard navigation, screen reader support, 
-                      and color contrast weren't thoroughly tested. Would need significant work to make the app 
+                      Accessibility wasn&apos;t prioritized from the start. Keyboard navigation, screen reader support, 
+                      and color contrast weren&apos;t thoroughly tested. Would need significant work to make the app 
                       fully accessible.
                     </p>
                   </div>
@@ -227,12 +227,12 @@ export default function Reflection() {
                       <strong className="dark:text-gray-200">Original Plan:</strong> Basic charts only
                     </p>
                     <p className="mb-2">
-                      <strong className="dark:text-gray-200">Why Changed:</strong> Charts alone didn't provide actionable insights. Students 
+                      <strong className="dark:text-gray-200">Why Changed:</strong> Charts alone didn&apos;t provide actionable insights. Students 
                       wanted to be told what the data means, not just see visualizations.
                     </p>
                     <p>
                       <strong className="dark:text-gray-200">Result:</strong> Created AI Insights component that generates personalized 
-                      messages like "You're spending 40% more on food this month." Much more valuable.
+                      messages like &quot;You&apos;re spending 40% more on food this month.&quot; Much more valuable.
                     </p>
                   </div>
                   
@@ -261,7 +261,7 @@ export default function Reflection() {
               <div className="bg-purple-50 dark:bg-purple-900/20 p-6 border-b border-purple-200 dark:border-purple-800">
                 <div className="flex items-center gap-3">
                   <Lightbulb className="w-6 h-6 text-purple-600 dark:text-purple-400" />
-                  <h2 className="text-purple-900 dark:text-purple-100">What I'd Build Next</h2>
+                  <h2 className="text-purple-900 dark:text-purple-100">What I&apos;d Build Next</h2>
                 </div>
               </div>
               
@@ -290,15 +290,15 @@ export default function Reflection() {
                     <p>
                       Integrate actual machine learning models (possibly OpenAI GPT) for more sophisticated 
                       insights. Could analyze spending patterns and provide personalized recommendations like 
-                      "Based on your habits, you could save $50/month by cooking instead of delivery."
+                      &quot;Based on your habits, you could save $50/month by cooking instead of delivery.&quot;
                     </p>
                   </div>
                   
                   <div>
                     <h4 className="text-gray-900 dark:text-gray-100 mb-2">👥 Social Features & Challenges</h4>
                     <p>
-                      Anonymous spending comparisons with peers (e.g., "You spend less than 70% of students 
-                      in your area"). Savings challenges with friends. Gamification elements to make budgeting 
+                      Anonymous spending comparisons with peers (e.g., &quot;You spend less than 70% of students 
+                      in your area&quot;). Savings challenges with friends. Gamification elements to make budgeting 
                       fun and social.
                     </p>
                   </div>

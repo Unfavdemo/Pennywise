@@ -20,7 +20,7 @@ export default function WhyPennywise() {
               <h2 className="text-gray-900 dark:text-gray-100 mb-4">Our Approach</h2>
               <div className="space-y-4 text-gray-700 dark:text-gray-300">
                 <p>
-                  Pennywise takes a fundamentally different approach to money management. Instead of trying to be everything for everyone, we've built a tool specifically for students - simple enough to use daily, powerful enough to create real change, and smart enough to provide insights without requiring financial expertise.
+                  Pennywise takes a fundamentally different approach to money management. Instead of trying to be everything for everyone, we&apos;ve built a tool specifically for students - simple enough to use daily, powerful enough to create real change, and smart enough to provide insights without requiring financial expertise.
                 </p>
                 <p>
                   Our core philosophy is <strong>visibility leads to intentionality</strong>. When students can see exactly where their money goes, they naturally make better decisions. We combine effortless expense tracking with AI-powered categorization and insights to remove the friction that causes students to abandon traditional budgeting tools.
@@ -179,7 +179,7 @@ export default function WhyPennywise() {
                   <div>
                     <h4 className="text-gray-900 dark:text-gray-100 mb-2">For User Adoption & Habit Formation:</h4>
                     <p className="text-gray-700 dark:text-gray-300">
-                      Make the experience delightful and rewarding. Use positive reinforcement (streak tracking, progress celebrations), keep the interface minimal and fast (sub-10-second transaction entry), and provide immediate value through insights that show students exactly what they're gaining from tracking.
+                      Make the experience delightful and rewarding. Use positive reinforcement (streak tracking, progress celebrations), keep the interface minimal and fast (sub-10-second transaction entry), and provide immediate value through insights that show students exactly what they&apos;re gaining from tracking.
                     </p>
                   </div>
                 </div>
@@ -191,7 +191,7 @@ export default function WhyPennywise() {
                   <div>
                     <h4 className="text-gray-900 dark:text-gray-100 mb-2">For Data Accuracy & Manual Entry:</h4>
                     <p className="text-gray-700 dark:text-gray-300">
-                      Use smart defaults (today's date, most common categories), implement AI-assisted categorization to reduce manual work, and create a forgiving system that allows easy editing and correction without judgment.
+                      Use smart defaults (today&apos;s date, most common categories), implement AI-assisted categorization to reduce manual work, and create a forgiving system that allows easy editing and correction without judgment.
                     </p>
                   </div>
                 </div>
@@ -203,7 +203,7 @@ export default function WhyPennywise() {
                   <div>
                     <h4 className="text-gray-900 dark:text-gray-100 mb-2">For AI Accuracy:</h4>
                     <p className="text-gray-700 dark:text-gray-300">
-                      Start with a rule-based system (keywords like "Starbucks" → Food & Dining), allow users to correct AI suggestions (which improves the model), and maintain a simple category structure that's easier to predict accurately.
+                      Start with a rule-based system (keywords like &quot;Starbucks&quot; → Food & Dining), allow users to correct AI suggestions (which improves the model), and maintain a simple category structure that&apos;s easier to predict accurately.
                     </p>
                   </div>
                 </div>

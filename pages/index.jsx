@@ -47,7 +47,7 @@ export default function Home() {
                 <Wallet className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-gray-900 dark:text-gray-100 mb-2">Track spending without stress</h3>
-              <p className="text-gray-600 dark:text-gray-300">Simple, quick expense tracking that doesn't feel like a chore</p>
+              <p className="text-gray-600 dark:text-gray-300">Simple, quick expense tracking that doesn&apos;t feel like a chore</p>
             </div>
             
             <div className="bg-blue-50 dark:bg-blue-900/20 p-6 rounded-xl">
@@ -81,10 +81,10 @@ export default function Home() {
       <section className="px-4 sm:px-6 lg:px-8 py-16 bg-gray-50 dark:bg-gray-900">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-center text-gray-900 dark:text-gray-100 mb-4">
-            Everything You Need, Nothing You Don't
+            Everything You Need, Nothing You Don&apos;t
           </h2>
           <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
-            We've built Pennywise with students in mind - simple, powerful, and actually enjoyable to use.
+            We&apos;ve built Pennywise with students in mind - simple, powerful, and actually enjoyable to use.
           </p>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
