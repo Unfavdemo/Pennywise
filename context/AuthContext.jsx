@@ -2,12 +2,6 @@ import { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext(undefined);
 
-const COACH_CREDENTIALS = [
-  { email: 'rob@launchpadphilly.org', password: 'lpuser1', role: 'coach' },
-  { email: 'sanaa@launchpadphilly.org', password: 'lpuser2', role: 'coach' },
-  { email: 'taheera@launchpadphilly.org', password: 'lpuser3', role: 'coach' },
-];
-
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
@@ -18,63 +12,69 @@ export function AuthProvider({ children }) {
     }
   }, []);
 
-  const createAccount = (email, password, name) => {
-    // Check if email already exists
-    const accounts = JSON.parse(localStorage.getItem('pennywise_accounts') || '[]');
-    
-    if (accounts.some(acc => acc.email === email)) {
-      return { success: false, error: 'An account with this email already exists' };
+  const createAccount = async (email, password, name) => {
+    try {
+      const response = await fetch('/api/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password, name }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return { success: false, error: data.error || 'Failed to create account' };
+      }
+
+      // Log the user in
+      const userData = {
+        id: data.user.id,
+        email: data.user.email,
+        name: data.user.name,
+        role: data.user.role,
+      };
+      setUser(userData);
+      localStorage.setItem('pennywise_user', JSON.stringify(userData));
+
+      return { success: true };
+    } catch (error) {
+      console.error('Error creating account:', error);
+      return { success: false, error: 'Network error. Please try again.' };
     }
-
-    // Check if it's a coach email
-    if (COACH_CREDENTIALS.some(c => c.email === email)) {
-      return { success: false, error: 'This email is reserved. Please use a different email.' };
-    }
-
-    // Create new account
-    const newAccount = {
-      email,
-      password,
-      name,
-      role: 'student',
-    };
-
-    accounts.push(newAccount);
-    localStorage.setItem('pennywise_accounts', JSON.stringify(accounts));
-
-    // Log the user in
-    const userData = { email, name, role: 'student' };
-    setUser(userData);
-    localStorage.setItem('pennywise_user', JSON.stringify(userData));
-
-    return { success: true };
   };
 
-  const login = (email, password) => {
-    // Check coach credentials
-    const coach = COACH_CREDENTIALS.find(
-      c => c.email === email && c.password === password
-    );
-    
-    if (coach) {
-      const userData = { email: coach.email, role: coach.role };
+  const login = async (email, password) => {
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        return false;
+      }
+
+      // Set user data
+      const userData = {
+        id: data.user.id,
+        email: data.user.email,
+        name: data.user.name,
+        role: data.user.role,
+      };
       setUser(userData);
       localStorage.setItem('pennywise_user', JSON.stringify(userData));
       return true;
+    } catch (error) {
+      console.error('Error logging in:', error);
+      return false;
     }
-    
-    // Check student accounts
-    const accounts = JSON.parse(localStorage.getItem('pennywise_accounts') || '[]');
-    const account = accounts.find(acc => acc.email === email && acc.password === password);
-    
-    if (account) {
-      const userData = { email: account.email, name: account.name, role: 'student' };
-      setUser(userData);
-      localStorage.setItem('pennywise_user', JSON.stringify(userData));
-      return true;
-    }
-    
-    return false;
   };
 
   const logout = () => {

@@ -87,58 +87,58 @@ export default function Product() {
   const totalSaved = goals.reduce((sum, g) => sum + g.currentAmount, 0);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Navigation />
       
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Dashboard Header */}
         <div className="mb-8">
-          <h1 className="text-gray-900 mb-6">Your Financial Dashboard</h1>
+          <h1 className="text-gray-900 dark:text-gray-100 mb-6">Your Financial Dashboard</h1>
           
           {/* Balance Overview Cards */}
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-gray-600 text-sm">Current Balance</span>
-                <div className="w-8 h-8 bg-emerald-100 rounded-lg flex items-center justify-center">
+                <span className="text-gray-600 dark:text-gray-300 text-sm">Current Balance</span>
+                <div className="w-8 h-8 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center">
                   💰
                 </div>
               </div>
-              <p className="text-gray-900 mb-1">${currentBalance.toFixed(2)}</p>
-              <p className="text-xs text-gray-500">Total available</p>
+              <p className="text-gray-900 dark:text-gray-100 mb-1">${currentBalance.toFixed(2)}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">Total available</p>
             </div>
             
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-gray-600 text-sm">Total Income</span>
-                <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
-                  <TrendingUp className="w-4 h-4 text-green-600" />
+                <span className="text-gray-600 dark:text-gray-300 text-sm">Total Income</span>
+                <div className="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                  <TrendingUp className="w-4 h-4 text-green-600 dark:text-green-400" />
                 </div>
               </div>
-              <p className="text-green-600 mb-1">${totalIncome.toFixed(2)}</p>
-              <p className="text-xs text-gray-500">This month</p>
+              <p className="text-green-600 dark:text-green-400 mb-1">${totalIncome.toFixed(2)}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">This month</p>
             </div>
             
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-gray-600 text-sm">Total Expenses</span>
-                <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center">
-                  <TrendingDown className="w-4 h-4 text-red-600" />
+                <span className="text-gray-600 dark:text-gray-300 text-sm">Total Expenses</span>
+                <div className="w-8 h-8 bg-red-100 dark:bg-red-900/30 rounded-lg flex items-center justify-center">
+                  <TrendingDown className="w-4 h-4 text-red-600 dark:text-red-400" />
                 </div>
               </div>
-              <p className="text-red-600 mb-1">${totalExpenses.toFixed(2)}</p>
-              <p className="text-xs text-gray-500">This month</p>
+              <p className="text-red-600 dark:text-red-400 mb-1">${totalExpenses.toFixed(2)}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">This month</p>
             </div>
             
-            <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-gray-600 text-sm">Goals Progress</span>
-                <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
+                <span className="text-gray-600 dark:text-gray-300 text-sm">Goals Progress</span>
+                <div className="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
                   🎯
                 </div>
               </div>
-              <p className="text-purple-600 mb-1">${totalSaved.toFixed(2)}</p>
-              <p className="text-xs text-gray-500">{goals.length} active goals</p>
+              <p className="text-purple-600 dark:text-purple-400 mb-1">${totalSaved.toFixed(2)}</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">{goals.length} active goals</p>
             </div>
           </div>
         </div>
@@ -150,7 +150,7 @@ export default function Product() {
             {/* Add Transaction Button */}
             <button
               onClick={() => setShowAddTransaction(true)}
-              className="w-full bg-emerald-500 text-white rounded-xl p-4 hover:bg-emerald-600 transition-colors flex items-center justify-center gap-2 shadow-lg"
+              className="w-full bg-emerald-500 dark:bg-emerald-600 text-white rounded-xl p-4 hover:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 shadow-lg"
             >
               <Plus className="w-5 h-5" />
               Add Transaction
@@ -202,7 +202,7 @@ export default function Product() {
       {/* Floating Action Button (Mobile) */}
       <button
         onClick={() => setShowAddTransaction(true)}
-        className="lg:hidden fixed bottom-6 right-6 w-14 h-14 bg-emerald-500 text-white rounded-full shadow-lg hover:bg-emerald-600 transition-all flex items-center justify-center hover:scale-110"
+        className="lg:hidden fixed bottom-6 right-6 w-14 h-14 bg-emerald-500 dark:bg-emerald-600 text-white rounded-full shadow-lg hover:bg-emerald-600 dark:hover:bg-emerald-700 transition-all flex items-center justify-center hover:scale-110"
       >
         <Plus className="w-6 h-6" />
       </button>

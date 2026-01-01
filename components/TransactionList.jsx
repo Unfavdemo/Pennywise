@@ -1,21 +1,13 @@
 import { Trash2, Filter } from 'lucide-react';
-import { Transaction } from '../pages/Product';
 
-interface TransactionListProps {
-  transactions: Transaction[];
-  filter: 'all' | 'income' | 'expense';
-  setFilter: (filter: 'all' | 'income' | 'expense') => void;
-  onDelete: (id: string) => void;
-}
-
-export default function TransactionList({ transactions, filter, setFilter, onDelete }: TransactionListProps) {
+export default function TransactionList({ transactions, filter, setFilter, onDelete }) {
   const filteredTransactions = transactions.filter(t => {
     if (filter === 'all') return true;
     return t.type === filter;
   });
 
-  const getCategoryColor = (category: string) => {
-    const colors: Record<string, string> = {
+  const getCategoryColor = (category) => {
+    const colors = {
       'Food & Dining': 'bg-orange-100 text-orange-700',
       'Transportation': 'bg-blue-100 text-blue-700',
       'Entertainment': 'bg-purple-100 text-purple-700',
@@ -126,7 +118,7 @@ export default function TransactionList({ transactions, filter, setFilter, onDel
           <div className="flex items-center justify-between">
             <span className="text-gray-600">Total</span>
             <span className="text-gray-900">
-              {filteredTransactions.reduce((sum, t) => {
+              ${filteredTransactions.reduce((sum, t) => {
                 return sum + (t.type === 'income' ? t.amount : -t.amount);
               }, 0).toFixed(2)}
             </span>
@@ -136,3 +128,4 @@ export default function TransactionList({ transactions, filter, setFilter, onDel
     </div>
   );
 }
+

@@ -1,18 +1,12 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
-import { Goal } from '../pages/Product';
 
-interface AddGoalModalProps {
-  onClose: () => void;
-  onAdd: (goal: Omit<Goal, 'id' | 'currentAmount'>) => void;
-}
-
-export default function AddGoalModal({ onClose, onAdd }: AddGoalModalProps) {
+export default function AddGoalModal({ onClose, onAdd }) {
   const [name, setName] = useState('');
   const [targetAmount, setTargetAmount] = useState('');
   const [deadline, setDeadline] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
     if (!name || !targetAmount) {
@@ -101,3 +95,4 @@ export default function AddGoalModal({ onClose, onAdd }: AddGoalModalProps) {
     </div>
   );
 }
+

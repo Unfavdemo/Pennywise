@@ -1,19 +1,11 @@
 import { Plus, Trash2, DollarSign } from 'lucide-react';
-import { Goal } from '../pages/Product';
 import { useState } from 'react';
 
-interface SavingsGoalsProps {
-  goals: Goal[];
-  onAddGoal: () => void;
-  onUpdateGoal: (id: string, amount: number) => void;
-  onDeleteGoal: (id: string) => void;
-}
-
-export default function SavingsGoals({ goals, onAddGoal, onUpdateGoal, onDeleteGoal }: SavingsGoalsProps) {
-  const [addingToGoal, setAddingToGoal] = useState<string | null>(null);
+export default function SavingsGoals({ goals, onAddGoal, onUpdateGoal, onDeleteGoal }) {
+  const [addingToGoal, setAddingToGoal] = useState(null);
   const [addAmount, setAddAmount] = useState('');
 
-  const handleAddToGoal = (goalId: string) => {
+  const handleAddToGoal = (goalId) => {
     const amount = parseFloat(addAmount);
     if (amount > 0) {
       onUpdateGoal(goalId, amount);
@@ -22,7 +14,7 @@ export default function SavingsGoals({ goals, onAddGoal, onUpdateGoal, onDeleteG
     }
   };
 
-  const getDaysUntilDeadline = (deadline?: string) => {
+  const getDaysUntilDeadline = (deadline) => {
     if (!deadline) return null;
     const today = new Date();
     const target = new Date(deadline);
@@ -144,3 +136,4 @@ export default function SavingsGoals({ goals, onAddGoal, onUpdateGoal, onDeleteG
     </div>
   );
 }
+

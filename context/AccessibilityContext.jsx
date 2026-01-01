@@ -6,6 +6,7 @@ const defaultSettings = {
   reducedMotion: false,
   colorBlindMode: 'none',
   focusIndicators: true,
+  darkMode: 'light', // 'light' or 'dark'
 };
 
 const AccessibilityContext = createContext(undefined);
@@ -63,6 +64,13 @@ export function AccessibilityProvider({ children }) {
       root.classList.add('enhanced-focus');
     } else {
       root.classList.remove('enhanced-focus');
+    }
+
+    // Dark mode
+    if (settings.darkMode === 'dark') {
+      root.classList.add('dark');
+    } else {
+      root.classList.remove('dark');
     }
 
     // Save to localStorage

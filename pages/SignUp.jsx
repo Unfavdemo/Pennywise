@@ -15,7 +15,7 @@ export default function SignUp() {
   const { createAccount } = useAuth();
   const router = useRouter();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
 
@@ -35,7 +35,7 @@ export default function SignUp() {
       return;
     }
 
-    const result = createAccount(email, password, name);
+    const result = await createAccount(email, password, name);
     if (result.success) {
       router.push('/product');
     } else {

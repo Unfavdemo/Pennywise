@@ -1,11 +1,6 @@
 import { Sparkles, TrendingUp, TrendingDown, AlertCircle } from 'lucide-react';
-import { Transaction } from '../lib/types';
 
-interface AIInsightsProps {
-  transactions: Transaction[];
-}
-
-export default function AIInsights({ transactions }: AIInsightsProps) {
+export default function AIInsights({ transactions }) {
   const generateInsights = () => {
     if (transactions.length === 0) {
       return [];
@@ -46,7 +41,7 @@ export default function AIInsights({ transactions }: AIInsightsProps) {
       .reduce((acc, t) => {
         acc[t.category] = (acc[t.category] || 0) + t.amount;
         return acc;
-      }, {} as Record<string, number>);
+      }, {});
 
     const topCategory = Object.entries(categoryTotals).sort((a, b) => b[1] - a[1])[0];
     if (topCategory && totalExpenses > 0) {
@@ -135,3 +130,4 @@ export default function AIInsights({ transactions }: AIInsightsProps) {
     </div>
   );
 }
+

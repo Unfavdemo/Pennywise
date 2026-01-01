@@ -1,13 +1,8 @@
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip, Legend } from 'recharts';
-import { Transaction } from '../pages/Product';
-
-interface InsightsChartsProps {
-  transactions: Transaction[];
-}
 
 const COLORS = ['#f97316', '#3b82f6', '#a855f7', '#ec4899', '#6366f1', '#10b981', '#64748b', '#eab308'];
 
-export default function InsightsCharts({ transactions }: InsightsChartsProps) {
+export default function InsightsCharts({ transactions }) {
   // Calculate spending by category
   const categoryData = transactions
     .filter(t => t.type === 'expense')
@@ -19,7 +14,7 @@ export default function InsightsCharts({ transactions }: InsightsChartsProps) {
         acc.push({ name: t.category, value: t.amount });
       }
       return acc;
-    }, [] as { name: string; value: number }[]);
+    }, []);
 
   // Calculate monthly trend (simplified - using transaction dates)
   const monthlyData = transactions.reduce((acc, t) => {
@@ -40,7 +35,7 @@ export default function InsightsCharts({ transactions }: InsightsChartsProps) {
       });
     }
     return acc;
-  }, [] as { month: string; income: number; expenses: number }[]);
+  }, []);
 
   if (transactions.length === 0) {
     return null;
@@ -71,7 +66,7 @@ export default function InsightsCharts({ transactions }: InsightsChartsProps) {
                     <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
                   ))}
                 </Pie>
-                <Tooltip formatter={(value: number) => `$${value.toFixed(2)}`} />
+                <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
               </PieChart>
             </ResponsiveContainer>
           </div>
@@ -85,7 +80,7 @@ export default function InsightsCharts({ transactions }: InsightsChartsProps) {
               <BarChart data={monthlyData}>
                 <XAxis dataKey="month" />
                 <YAxis />
-                <Tooltip formatter={(value: number) => `$${value.toFixed(2)}`} />
+                <Tooltip formatter={(value) => `$${value.toFixed(2)}`} />
                 <Legend />
                 <Bar dataKey="income" fill="#10b981" name="Income" />
                 <Bar dataKey="expenses" fill="#ef4444" name="Expenses" />
@@ -97,3 +92,4 @@ export default function InsightsCharts({ transactions }: InsightsChartsProps) {
     </div>
   );
 }
+

@@ -1,11 +1,5 @@
 import { useState } from 'react';
 import { X, Sparkles } from 'lucide-react';
-import { Transaction } from '../pages/Product';
-
-interface AddTransactionModalProps {
-  onClose: () => void;
-  onAdd: (transaction: Omit<Transaction, 'id'>) => void;
-}
 
 const CATEGORIES = [
   'Food & Dining',
@@ -19,55 +13,75 @@ const CATEGORIES = [
   'Other',
 ];
 
-// Simple AI categorization based on keywords
-function suggestCategory(description: string, merchant: string): string {
-  const text = `${description} ${merchant}`.toLowerCase();
-  
-  if (text.match(/coffee|starbucks|restaurant|food|lunch|dinner|breakfast|chipotle|mcdonalds|pizza|burger/)) {
-    return 'Food & Dining';
-  }
-  if (text.match(/uber|lyft|gas|bus|train|taxi|parking|transport/)) {
-    return 'Transportation';
-  }
-  if (text.match(/movie|concert|game|netflix|spotify|hulu|entertainment|show/)) {
-    return 'Entertainment';
-  }
-  if (text.match(/amazon|shop|store|clothes|clothing|purchase|buy/)) {
-    return 'Shopping';
-  }
-  if (text.match(/book|tuition|course|school|university|education|supplies/)) {
-    return 'Education';
-  }
-  if (text.match(/gym|fitness|health|doctor|pharmacy|medicine|workout/)) {
-    return 'Health & Fitness';
-  }
-  if (text.match(/rent|utility|phone|internet|bill|electric|water/)) {
-    return 'Bills & Utilities';
-  }
-  if (text.match(/salary|paycheck|allowance|income|paid|earnings/)) {
-    return 'Income';
-  }
-  
-  return 'Other';
-}
-
-export default function AddTransactionModal({ onClose, onAdd }: AddTransactionModalProps) {
-  const [type, setType] = useState<'income' | 'expense'>('expense');
+export default function AddTransactionModal({ onClose, onAdd }) {
+  const [type, setType] = useState('expense');
   const [amount, setAmount] = useState('');
   const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [merchant, setMerchant] = useState('');
   const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
   const [aiSuggested, setAiSuggested] = useState(false);
+  const [aiLoading, setAiLoading] = useState(false);
+  const [aiMethod, setAiMethod] = useState('');
 
-  const handleAICategorize = () => {
-    const suggested = suggestCategory(description, merchant);
-    setCategory(suggested);
-    setAiSuggested(true);
-    setTimeout(() => setAiSuggested(false), 2000);
+  const handleAICategorize = async () => {
+    if (!description && !merchant) {
+      return;
+    }
+
+    setAiLoading(true);
+    try {
+      const response = await fetch('/api/ai/categorize', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ description, merchant }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to categorize');
+      }
+
+      const data = await response.json();
+      setCategory(data.category);
+      setAiMethod(data.method);
+      setAiSuggested(true);
+      setTimeout(() => setAiSuggested(false), 3000);
+    } catch (error) {
+      console.error('AI categorization error:', error);
+      // Fallback to keyword matching
+      const text = `${description} ${merchant}`.toLowerCase();
+      let suggested = 'Other';
+      
+      if (text.match(/coffee|starbucks|restaurant|food|lunch|dinner|breakfast|chipotle|mcdonalds|pizza|burger/)) {
+        suggested = 'Food & Dining';
+      } else if (text.match(/uber|lyft|gas|bus|train|taxi|parking|transport/)) {
+        suggested = 'Transportation';
+      } else if (text.match(/movie|concert|game|netflix|spotify|hulu|entertainment|show/)) {
+        suggested = 'Entertainment';
+      } else if (text.match(/amazon|shop|store|clothes|clothing|purchase|buy/)) {
+        suggested = 'Shopping';
+      } else if (text.match(/book|tuition|course|school|university|education|supplies/)) {
+        suggested = 'Education';
+      } else if (text.match(/gym|fitness|health|doctor|pharmacy|medicine|workout/)) {
+        suggested = 'Health & Fitness';
+      } else if (text.match(/rent|utility|phone|internet|bill|electric|water/)) {
+        suggested = 'Bills & Utilities';
+      } else if (text.match(/salary|paycheck|allowance|income|paid|earnings/)) {
+        suggested = 'Income';
+      }
+      
+      setCategory(suggested);
+      setAiMethod('keyword');
+      setAiSuggested(true);
+      setTimeout(() => setAiSuggested(false), 3000);
+    } finally {
+      setAiLoading(false);
+    }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     
     if (!amount || !category) {
@@ -176,10 +190,11 @@ export default function AddTransactionModal({ onClose, onAdd }: AddTransactionMo
             <button
               type="button"
               onClick={handleAICategorize}
-              className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-purple-50 text-purple-600 border border-purple-200 rounded-lg hover:bg-purple-100 transition-colors"
+              disabled={aiLoading}
+              className="w-full flex items-center justify-center gap-2 px-4 py-2 bg-purple-50 text-purple-600 border border-purple-200 rounded-lg hover:bg-purple-100 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              <Sparkles className="w-4 h-4" />
-              AI Categorize
+              <Sparkles className={`w-4 h-4 ${aiLoading ? 'animate-spin' : ''}`} />
+              {aiLoading ? 'Categorizing...' : 'AI Categorize'}
             </button>
           )}
 
@@ -188,7 +203,9 @@ export default function AddTransactionModal({ onClose, onAdd }: AddTransactionMo
             <label className="block text-sm text-gray-700 mb-2">
               Category *
               {aiSuggested && (
-                <span className="ml-2 text-xs text-purple-600">✨ AI Suggested</span>
+                <span className="ml-2 text-xs text-purple-600">
+                  ✨ AI Suggested {aiMethod === 'openai' && '(OpenAI)'} {aiMethod === 'gemini' && '(Gemini)'} {aiMethod === 'keyword' && '(Keyword)'}
+                </span>
               )}
             </label>
             <select
@@ -236,3 +253,4 @@ export default function AddTransactionModal({ onClose, onAdd }: AddTransactionMo
     </div>
   );
 }
+
