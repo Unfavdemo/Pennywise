@@ -1,5 +1,7 @@
 import { AuthProvider } from '../context/AuthContext';
 import { AccessibilityProvider } from '../context/AccessibilityContext';
+import Navigation from '../components/Navigation';
+import Footer from '../components/Footer';
 import '../styles/globals.css';
 
 export default function App({ Component, pageProps }) {
@@ -34,7 +36,9 @@ export default function App({ Component, pageProps }) {
             </defs>
           </svg>
         </div>
+        <Navigation />
         <Component {...pageProps} />
+        <Footer />
       </AccessibilityProvider>
     </AuthProvider>
   );

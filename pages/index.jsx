@@ -1,12 +1,10 @@
 import Link from 'next/link';
-import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Wallet, TrendingUp, Target, Sparkles, ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <Navigation />
       
       {/* Hero Section */}
       <section className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 md:py-24">

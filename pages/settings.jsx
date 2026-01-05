@@ -1,4 +1,3 @@
-import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { useAccessibility } from '../context/AccessibilityContext';
 import { Settings as SettingsIcon, Type, Eye, Zap, Palette, RotateCcw, Moon, Sun } from 'lucide-react';
@@ -8,7 +7,6 @@ export default function Settings() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
-      <Navigation />
       
       <main className="flex-1 px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-4xl mx-auto">

@@ -1,12 +1,10 @@
 import Link from 'next/link';
-import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { ShieldOff } from 'lucide-react';
 
 export default function AccessDenied() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
-      <Navigation />
       
       <main className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center max-w-md">

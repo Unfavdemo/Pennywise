@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useAuth } from '../context/AuthContext';
-import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { Wallet, Lock, Mail } from 'lucide-react';
 
@@ -27,7 +26,6 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <Navigation />
       
       <main className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-md w-full">

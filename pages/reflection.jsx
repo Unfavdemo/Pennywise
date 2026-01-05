@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { useAuth } from '../context/AuthContext';
 import { Lock, CheckCircle, XCircle, RefreshCw, Lightbulb } from 'lucide-react';
@@ -23,8 +22,6 @@ export default function Reflection() {
 
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-800">
-      <Navigation />
-      
       <main className="flex-1 px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-4xl mx-auto">
           {/* Access Banner */}

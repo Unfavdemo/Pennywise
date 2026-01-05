@@ -1,12 +1,10 @@
 import Link from 'next/link';
-import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { TrendingUp, Target, PieChart, Clock, Sparkles, Zap, Brain, Shield, ArrowRight } from 'lucide-react';
 
 export default function Features() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
-      <Navigation />
       
       <main className="flex-1 px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-6xl mx-auto">

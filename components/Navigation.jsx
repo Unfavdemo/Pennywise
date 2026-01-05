@@ -5,7 +5,9 @@ import { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 
 export default function Navigation() {
+
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  
   const router = useRouter();
   const { user, logout, isCoach } = useAuth();
 
@@ -78,12 +80,14 @@ export default function Navigation() {
                    ) : (
                      <div className="flex items-center gap-3">
                        <Link
+                        key="/login"
                          href="/login"
                          className="px-4 py-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
                        >
                          Login
                        </Link>
                        <Link
+                         key="/signup"
                          href="/signup"
                          className="px-4 py-2 bg-emerald-500 dark:bg-emerald-600 text-white rounded-lg hover:bg-emerald-600 dark:hover:bg-emerald-700 transition-colors"
                        >

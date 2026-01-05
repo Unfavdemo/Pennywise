@@ -1,11 +1,9 @@
-import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 import { CheckCircle, AlertTriangle, Lightbulb } from 'lucide-react';
 
 export default function WhyPennywise() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
-      <Navigation />
       
       <main className="flex-1 px-4 sm:px-6 lg:px-8 py-12">
         <div className="max-w-4xl mx-auto">

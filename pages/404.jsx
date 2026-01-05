@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Home, ArrowLeft } from 'lucide-react';
-import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
 
 export default function Custom404() {
@@ -9,7 +8,6 @@ export default function Custom404() {
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-emerald-50 to-white dark:from-gray-900 dark:to-gray-800">
-      <Navigation />
       
       <div className="flex-1 flex items-center justify-center px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <div className="max-w-2xl mx-auto text-center">
