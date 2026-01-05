@@ -15,7 +15,7 @@ import { apiRequest, handleApiResponse } from '../lib/api-helpers';
 import { useAuth } from '../context/AuthContext';
 import { useMigration } from '../lib/useMigration';
 
-export default function Product() {
+function Product() {
   const { user } = useAuth();
   const router = useRouter();
   const { isMigrating, migrationComplete, migrationResult, checkAndMigrate } = useMigration();
@@ -416,3 +416,4 @@ export default function Product() {
   );
 }
 
+export default Product;
