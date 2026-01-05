@@ -10,8 +10,11 @@ import { PrismaClient } from '@prisma/client';
 
 // Validate DATABASE_URL is set
 if (!process.env.DATABASE_URL) {
-  console.error('❌ DATABASE_URL environment variable is not set!');
-  console.error('💡 Create a .env.local file with: DATABASE_URL="your-postgres-connection-string"');
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('DATABASE_URL environment variable is required in production');
+  }
+  console.warn('⚠️ DATABASE_URL environment variable is not set!');
+  console.warn('💡 Create a .env.local file with: DATABASE_URL="your-postgres-connection-string"');
 }
 
 const globalForPrisma = globalThis as unknown as { prisma: PrismaClient };
