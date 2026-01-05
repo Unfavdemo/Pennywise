@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import Footer from '../components/Footer';
 import { useAuth } from '../context/AuthContext';
 import { Lock, CheckCircle, XCircle, RefreshCw, Lightbulb } from 'lucide-react';
 
@@ -368,8 +367,6 @@ export default function Reflection() {
           </section>
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }

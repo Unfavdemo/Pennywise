@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Footer from '../components/Footer';
 import { Wallet, TrendingUp, Target, Sparkles, ArrowRight } from 'lucide-react';
 
 export default function Home() {
@@ -112,8 +111,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      
-      <Footer />
     </div>
   );
 }

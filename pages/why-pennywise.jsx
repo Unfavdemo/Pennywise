@@ -1,4 +1,3 @@
-import Footer from '../components/Footer';
 import { CheckCircle, AlertTriangle, Lightbulb } from 'lucide-react';
 
 export default function WhyPennywise() {
@@ -223,8 +222,6 @@ export default function WhyPennywise() {
 
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }

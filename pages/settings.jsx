@@ -1,4 +1,3 @@
-import Footer from '../components/Footer';
 import { useAccessibility } from '../context/AccessibilityContext';
 import { Settings as SettingsIcon, Type, Eye, Zap, Palette, RotateCcw, Moon, Sun } from 'lucide-react';
 
@@ -322,8 +321,6 @@ export default function Settings() {
           </div>
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }

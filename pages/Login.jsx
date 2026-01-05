@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import { useAuth } from '../context/AuthContext';
-import Footer from '../components/Footer';
 import { Wallet, Lock, Mail } from 'lucide-react';
 
 export default function Login() {
@@ -94,8 +93,6 @@ export default function Login() {
           </div>
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Plus, Trash2, Edit2, AlertTriangle, CheckCircle } from 'lucide-react';
 import { apiRequest, handleApiResponse } from '../lib/api-helpers';
 import DeleteConfirmationModal from './DeleteConfirmationModal';
@@ -31,26 +31,7 @@ export default function BudgetTracking({ transactions }) {
     fetchBudgets();
   }, []);
 
-  useEffect(() => {
-    if (budgets.length > 0 && transactions.length > 0) {
-      calculateProgress();
-    }
-  }, [budgets, transactions]);
-
-  const fetchBudgets = async () => {
-    try {
-      setLoading(true);
-      const response = await apiRequest('/api/budgets');
-      const data = await handleApiResponse(response);
-      setBudgets(data);
-    } catch (error) {
-      console.error('Error fetching budgets:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const calculateProgress = () => {
+  const calculateProgress = useCallback(() => {
     const progress = {};
     const now = new Date();
     const currentMonth = now.getMonth();
@@ -94,6 +75,25 @@ export default function BudgetTracking({ transactions }) {
     });
 
     setBudgetProgress(progress);
+  }, [budgets, transactions]);
+
+  useEffect(() => {
+    if (budgets.length > 0 && transactions.length > 0) {
+      calculateProgress();
+    }
+  }, [budgets, transactions, calculateProgress]);
+
+  const fetchBudgets = async () => {
+    try {
+      setLoading(true);
+      const response = await apiRequest('/api/budgets');
+      const data = await handleApiResponse(response);
+      setBudgets(data);
+    } catch (error) {
+      console.error('Error fetching budgets:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const addBudget = async (budgetData) => {

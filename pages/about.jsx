@@ -1,4 +1,3 @@
-import Footer from '../components/Footer';
 import { AlertCircle, TrendingDown, Clock, BookOpen } from 'lucide-react';
 
 export default function About() {
@@ -207,8 +206,6 @@ export default function About() {
           </section>
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }

@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Footer from '../components/Footer';
 import { ShieldOff } from 'lucide-react';
 
 export default function AccessDenied() {
@@ -34,8 +33,6 @@ export default function AccessDenied() {
           </div>
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }

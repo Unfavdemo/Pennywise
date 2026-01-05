@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Home, ArrowLeft } from 'lucide-react';
-import Footer from '../components/Footer';
 
 export default function Custom404() {
   const router = useRouter();
@@ -43,8 +42,6 @@ export default function Custom404() {
           </div>
         </div>
       </div>
-      
-      <Footer />
     </div>
   );
 }

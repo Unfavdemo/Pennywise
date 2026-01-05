@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Footer from '../components/Footer';
 import { TrendingUp, Target, PieChart, Clock, Sparkles, Zap, Brain, Shield, ArrowRight } from 'lucide-react';
 
 export default function Features() {
@@ -261,8 +260,6 @@ export default function Features() {
           </section>
         </div>
       </main>
-      
-      <Footer />
     </div>
   );
 }

@@ -41,7 +41,7 @@ function Product() {
     if (user && !migrationComplete && !isMigrating) {
       checkAndMigrate();
     }
-  }, [user, migrationComplete, isMigrating]);
+  }, [user, migrationComplete, isMigrating, checkAndMigrate]);
 
   // Show migration success message
   useEffect(() => {
